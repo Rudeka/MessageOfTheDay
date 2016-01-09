@@ -1,0 +1,15 @@
+﻿@using MessageOfTheDay.Domain.Entities
+@model IEnumerable<Day>
+
+@{
+    ViewBag.Title = "Day List";
+}
+
+<h2>MessageList</h2>
+
+@foreach (var day in Model)
+{
+    <div>
+        @day.Name
+    </div>
+}

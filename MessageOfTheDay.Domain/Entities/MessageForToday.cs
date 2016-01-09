@@ -1,6 +1,6 @@
 ﻿namespace MessageOfTheDay.Domain.Entities
 {
-    public class Messages
+    public class MessageForToday
     {
         public int Id { get; set; }
         public int LanguageId { get; set; }

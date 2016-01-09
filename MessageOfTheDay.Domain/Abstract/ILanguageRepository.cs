@@ -3,8 +3,8 @@ using MessageOfTheDay.Domain.Entities;
 
 namespace MessageOfTheDay.Domain.Abstract
 {
-    public interface ILanguagesRepository
+    public interface ILanguageRepository
     {
-        IEnumerable<Languages> LanguagesEnumerable { get; }
+        IEnumerable<Language> LanguagesEnumerable { get; }
     }
 }

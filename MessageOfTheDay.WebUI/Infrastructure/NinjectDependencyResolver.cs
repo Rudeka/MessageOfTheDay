@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Web.Mvc;
+using MessageOfTheDay.Domain.Abstract;
+using MessageOfTheDay.Domain.Concrete;
 using Ninject;
 
 namespace MessageOfTheDay.WebUI.Infrastructure
@@ -27,7 +29,9 @@ namespace MessageOfTheDay.WebUI.Infrastructure
 
         private void AddBindings()
         {
-            throw new NotImplementedException();
+            kernel.Bind<IMessageRepository>().To<EFMessageRepository>();
+            kernel.Bind<ILanguageRepository>().To<EFLanguageRepository>();
+            kernel.Bind<IDayRepository>().To<EFDayRepository>();
         }
     }
 }

@@ -1,6 +1,6 @@
 ﻿namespace MessageOfTheDay.Domain.Entities
 {
-    public class Days
+    public class Day
     {
         public int Id { get; set; }
         public string Name { get; set; }

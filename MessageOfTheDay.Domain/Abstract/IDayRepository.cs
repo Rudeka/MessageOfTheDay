@@ -3,8 +3,8 @@ using MessageOfTheDay.Domain.Entities;
 
 namespace MessageOfTheDay.Domain.Abstract
 {
-    public interface IDaysRepository
+    public interface IDayRepository
     {
-        IEnumerable<Days> DaysEnumerable { get; }
+        IEnumerable<Day> DaysEnumerable { get; }
     }
 }
