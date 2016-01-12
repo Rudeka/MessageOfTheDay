@@ -1,5 +1,5 @@
 ﻿@using MessageOfTheDay.Domain.Entities
-@model IEnumerable<Day>
+@model IEnumerable<Message>
 
 @{
     ViewBag.Title = "Day List";
@@ -7,9 +7,9 @@
 
 <h2>MessageList</h2>
 
-@foreach (var day in Model)
+@foreach (var message in Model)
 {
     <div>
-        @day.Name
+        @message.TodaysMessage
     </div>
 }

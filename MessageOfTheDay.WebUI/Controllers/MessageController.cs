@@ -20,7 +20,7 @@ namespace MessageOfTheDay.WebUI.Controllers
 
         public ViewResult MessageList()
         {
-            return View(dayRepository.DaysEnumerable);
+            return View(messageRepository.MessagesEnumerable);
         }
     }
 }

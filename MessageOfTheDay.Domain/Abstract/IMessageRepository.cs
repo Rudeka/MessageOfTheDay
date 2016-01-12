@@ -5,6 +5,6 @@ namespace MessageOfTheDay.Domain.Abstract
 {
     public interface IMessageRepository
     {
-        IEnumerable<MessageForToday> MessagesEnumerable { get; }  
+        IEnumerable<Message> MessagesEnumerable { get; }  
     }
 }

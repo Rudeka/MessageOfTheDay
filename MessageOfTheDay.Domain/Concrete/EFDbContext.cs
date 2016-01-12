@@ -7,6 +7,6 @@ namespace MessageOfTheDay.Domain.Concrete
     {
         public DbSet<Day> Days { get; set; }
         public DbSet<Language> Languages { get; set; }
-        public DbSet<MessageForToday> Messages { get; set; }
+        public DbSet<Message> Messages { get; set; }
     }
 }

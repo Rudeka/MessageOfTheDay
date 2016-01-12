@@ -8,7 +8,7 @@ namespace MessageOfTheDay.Domain.Concrete
     {
         private EFDbContext context = new EFDbContext();
 
-        public IEnumerable<MessageForToday> MessagesEnumerable
+        public IEnumerable<Message> MessagesEnumerable
         {
             get { return context.Messages; }
         }
