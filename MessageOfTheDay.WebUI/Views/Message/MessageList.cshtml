@@ -1,5 +1,4 @@
-﻿@using MessageOfTheDay.Domain.Entities
-@model IEnumerable<Message>
+﻿@model MessageOfTheDay.WebUI.Models.MessageOfTheDayViewModel
 
 @{
     ViewBag.Title = "Day List";
@@ -7,7 +6,7 @@
 
 <h2>MessageList</h2>
 
-@foreach (var message in Model)
+@foreach (var message in Model.Messages)
 {
     <div>
         @message.TodaysMessage
