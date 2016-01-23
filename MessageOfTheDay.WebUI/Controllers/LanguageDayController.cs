@@ -5,6 +5,7 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using MessageOfTheDay.Domain.Abstract;
+using MessageOfTheDay.WebUI.Models;
 
 namespace MessageOfTheDay.WebUI.Controllers
 {
@@ -31,6 +32,13 @@ namespace MessageOfTheDay.WebUI.Controllers
             IEnumerable<int> languageIDs = languageRepository.LanguagesEnumerable
                 .Select(x => x.Id);
             return PartialView(languageIDs);
+        }
+
+
+        public ActionResult SelectDay()
+        {
+            DropdownInfo model = new DropdownInfo(dayRepository,languageRepository);
+            return PartialView(model);
         }
     }
 }

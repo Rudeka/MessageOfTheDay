@@ -20,6 +20,7 @@ namespace MessageOfTheDay.WebUI.Controllers
             this.messageRepository = messageRepository;
         }
 
+        [HttpGet]
         public ViewResult MessageList(int? currentDay = null, int languageId = 1)
         {
             currentDay = currentDay ?? (int) DateTime.Now.DayOfWeek;

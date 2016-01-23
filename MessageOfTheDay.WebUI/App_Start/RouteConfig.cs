@@ -12,24 +12,28 @@ namespace MessageOfTheDay.WebUI
     {
         public static void RegisterRoutes(RouteCollection routes)
         {
-            routes.IgnoreRoute("{resource}.axd/{*pathInfo}");
+            //routes.IgnoreRoute("{resource}.axd/{*pathInfo}");
 
-            routes.MapRoute(null, "", new { controller = "Message", action = "MessageList", currentDay = (int?) null, languageId = 1}
+            routes.MapRoute(null, "", new { controller = "Message", action = "MessageList", currentDay = (int?)null, languageId = 1 }
             );
 
-            routes.MapRoute(null, "Language{languageId}",
-                new {controller = "Message", action = "MessageList", currentDay = (int?) null},
-                new {languageId = @"\d+"});
+            routes.MapRoute(null, "{controller}/{action}/{currentDay}", 
+                new { controller = "Message", action = "MessageList", currentDay = (int?)null }
+);
 
-            routes.MapRoute(null, "Day{currentDay}",
-                new { controller = "Message", action = "MessageList", languageId = 1 },
-                new { currentDay = @"\d+" });
+            //routes.MapRoute(null, "Language{languageId}",
+            //    new { controller = "Message", action = "MessageList", currentDay = (int?)null },
+            //    new { languageId = @"\d+" });
 
-            routes.MapRoute(null, "Day{currentDay}/Language{languageId}",
-                new
-                {
-                    controller = "Message", action = "MessageList"
-                });
+            //routes.MapRoute(null, "Day{currentDay}",
+            //    new { controller = "Message", action = "MessageList", languageId = 1 },
+            //    new { currentDay = @"\d+" });
+
+            //routes.MapRoute(null, "Day{currentDay}/Language{languageId}",
+            //    new
+            //    {
+            //        controller = "Message", action = "MessageList"
+            //    });
 
             routes.MapRoute(null, "{controller}/{action}");
         }

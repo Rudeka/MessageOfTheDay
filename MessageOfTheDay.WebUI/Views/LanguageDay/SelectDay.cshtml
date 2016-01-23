@@ -1,0 +1,12 @@
+﻿@model MessageOfTheDay.WebUI.Models.DropdownInfo
+
+@using (Html.BeginForm("MessageList", "Message", FormMethod.Post))
+{
+  <fieldset>
+    @Html.DropDownListFor(m => m.SelectedDayId, Model.GetDays());
+      <p>
+          <input type="submit" value="Submit"/>
+      </p>
+
+    </fieldset>
+}
