@@ -6,7 +6,15 @@
 @foreach (var message in Model.Messages)
 {
     <div>
-        @message.TodaysMessage
+        @message.TodaysMessage <br/>
+        <img src="@Url.Content("~/Content/Images/" + Model.FlagPath)" />
+
     </div>
+    //foreach (var language in Model.Languages.Where(language => language.Id == message.LanguageId))
+    //{
+    //    <div>
+    //        @language.PartialFlagPath
+    //    </div>
+    //}
 }
 @Html.Partial("ShowDropdowns", new MessageOfTheDay.WebUI.Models.UserSelection(Model.Days, Model.Languages))
