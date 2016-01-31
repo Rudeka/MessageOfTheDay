@@ -1,0 +1,12 @@
+﻿@model MessageOfTheDay.WebUI.Models.ContextModel
+@{
+    ViewBag.Title = "Message of the Day";
+}
+
+@foreach (var message in Model.Messages)
+{
+    <div>
+        @message.TodaysMessage
+    </div>
+}
+@Html.Partial("ShowDropdowns", new MessageOfTheDay.WebUI.Models.UserSelection(Model.Days, Model.Languages))

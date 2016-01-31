@@ -1,0 +1,14 @@
+﻿@model MessageOfTheDay.WebUI.Models.UserSelection
+
+@using (Html.BeginForm("List", "Message", FormMethod.Post))
+{
+    <fieldset>
+        <span>
+            @Html.DropDownListFor(s => s.SelectedLanguageId, Model.Languages)
+        </span>
+        <span>
+            @Html.DropDownListFor(d => d.SelectedDayId, Model.Days)
+        </span>
+        <input type="submit" value="Show the message!" />
+    </fieldset>
+}
