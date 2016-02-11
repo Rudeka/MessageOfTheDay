@@ -149,6 +149,7 @@
     </Compile>
     <Compile Include="Infrastructure\NinjectDependencyResolver.cs" />
     <Compile Include="Models\ContextModel.cs" />
+    <Compile Include="Models\ShowDropdownsModel.cs" />
     <Compile Include="Models\UserSelection.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

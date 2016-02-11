@@ -13,5 +13,16 @@ namespace MessageOfTheDay.Domain.Concrete
             get { return context.Messages; }
         }
 
+        public void SaveMessage(Message message)
+        {
+            Message dbEntry = context.Messages.Find(message.Id);
+
+            if (dbEntry != null)
+            {
+                dbEntry.TodaysMessage = message.TodaysMessage;
+            }
+
+            context.SaveChanges();
+        }
     }
 }

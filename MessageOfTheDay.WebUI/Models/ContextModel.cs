@@ -9,7 +9,7 @@ namespace MessageOfTheDay.WebUI.Models
 
         public IEnumerable<Language> Languages { get; set; }
 
-        public IEnumerable<Message> Messages { get; set; }
+        public Message Message { get; set; }
 
         public string FlagPath { get; set; }
     }

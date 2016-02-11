@@ -3,6 +3,7 @@ using System.Linq;
 using System.Web.Mvc;
 using MessageOfTheDay.WebUI.Models;
 using MessageOfTheDay.Domain.Abstract;
+using MessageOfTheDay.Domain.Entities;
 
 namespace MessageOfTheDay.WebUI.Controllers
 {
@@ -29,8 +30,7 @@ namespace MessageOfTheDay.WebUI.Controllers
             {
                 Languages = _languageRepository.LanguagesEnumerable,
                 Days = _dayRepository.DaysEnumerable,
-                Messages = _messageRepository.MessagesEnumerable
-                    .Where(m => m.DayId == todayId && m.LanguageId == defaultLangId),
+                Message = _messageRepository.MessagesEnumerable.Single(m => m.DayId == todayId && m.LanguageId == defaultLangId),
                 FlagPath = GetImagePath(defaultLangId)
             };
 
@@ -44,15 +44,13 @@ namespace MessageOfTheDay.WebUI.Controllers
             {
                 Languages = _languageRepository.LanguagesEnumerable,
                 Days = _dayRepository.DaysEnumerable,
-                Messages = _messageRepository.MessagesEnumerable
-                    .Where(
-                        m => m.DayId == userSelection.SelectedDayId && m.LanguageId == userSelection.SelectedLanguageId),
+                Message = _messageRepository.MessagesEnumerable.Single(m => m.DayId == userSelection.SelectedDayId && m.LanguageId == userSelection.SelectedLanguageId),
                 FlagPath = GetImagePath(userSelection.SelectedLanguageId)
             };
 
             return View(model);
         }
-
+        
         public string GetImagePath(int langId)
         {
             var language = _languageRepository.LanguagesEnumerable
@@ -65,6 +63,15 @@ namespace MessageOfTheDay.WebUI.Controllers
             {
                 return null;
             }
+        }
+
+        [HttpPost]
+        public ActionResult Save(Message message)
+        {
+
+            _messageRepository.SaveMessage(message);
+
+            return RedirectToAction("List");
         }
     }
 }

@@ -3,18 +3,16 @@
     ViewBag.Title = "Message of the Day";
 }
 
-@foreach (var message in Model.Messages)
+@using (Html.BeginForm("Save", "Message", FormMethod.Post))
 {
-    <div>
-        @message.TodaysMessage <br/>
-        <img src="@Url.Content("~/Content/Images/" + Model.FlagPath)" />
+    @Html.Label("This is a message of " + @Model.Days.Single(m => m.Id == Model.Message.DayId).Name)<br/>
+    @Html.TextAreaFor(m => m.Message.TodaysMessage)
+    @Html.HiddenFor(m => m.Message.Id)
 
-    </div>
-    //foreach (var language in Model.Languages.Where(language => language.Id == message.LanguageId))
-    //{
-    //    <div>
-    //        @language.PartialFlagPath
-    //    </div>
-    //}
+    <input type="submit" value="Save"><br>
+    
 }
-@Html.Partial("ShowDropdowns", new MessageOfTheDay.WebUI.Models.UserSelection(Model.Days, Model.Languages))
+
+<img src="@Url.Content("~/Content/Images/" + Model.FlagPath)" />
+
+@Html.Partial("ShowDropdowns", new MessageOfTheDay.WebUI.Models.ShowDropdownsModel(Model.Days, Model.Languages))
